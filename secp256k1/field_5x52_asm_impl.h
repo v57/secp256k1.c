@@ -11,9 +11,6 @@
  * - December 2014, Pieter Wuille: converted from YASM to GCC inline assembly
  */
 
-#ifndef SECP256K1_FIELD_INNER5X52_IMPL_H
-#define SECP256K1_FIELD_INNER5X52_IMPL_H
-
 SECP256K1_INLINE static void secp256k1_fe_mul_inner(uint64_t *r, const uint64_t *a, const uint64_t * SECP256K1_RESTRICT b) {
 /**
  * Registers: rdx:rax = multiplication accumulator
@@ -498,5 +495,3 @@ __asm__ __volatile__(
 : "%rax", "%rbx", "%rcx", "%rdx", "%r8", "%r9", "%r10", "%r11", "%r12", "%r13", "%r14", "%r15", "cc", "memory"
 );
 }
-
-#endif /* SECP256K1_FIELD_INNER5X52_IMPL_H */
