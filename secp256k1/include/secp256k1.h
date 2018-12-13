@@ -1,10 +1,6 @@
 #ifndef SECP256K1_H
 #define SECP256K1_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include <stddef.h>
 
 /* These rules specify the order of arguments in API calls:
@@ -646,7 +642,7 @@ SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ec_pubkey_combine(
     const secp256k1_pubkey * const * ins,
     size_t n
 ) SECP256K1_ARG_NONNULL(2) SECP256K1_ARG_NONNULL(3);
-    
+
     /** Opaque data structured that holds a parsed ECDSA signature,
      *  supporting pubkey recovery.
      *
@@ -664,7 +660,7 @@ SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ec_pubkey_combine(
     typedef struct {
         unsigned char data[65];
     } secp256k1_ecdsa_recoverable_signature;
-    
+
     /** Parse a compact ECDSA signature (64 bytes + recovery id).
      *
      *  Returns: 1 when the signature could be parsed, 0 otherwise
@@ -679,7 +675,7 @@ SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ec_pubkey_combine(
                                                                           const unsigned char *input64,
                                                                           int recid
                                                                           ) SECP256K1_ARG_NONNULL(1) SECP256K1_ARG_NONNULL(2) SECP256K1_ARG_NONNULL(3);
-    
+
     /** Convert a recoverable signature into a normal signature.
      *
      *  Returns: 1
@@ -691,7 +687,7 @@ SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ec_pubkey_combine(
                                                                     secp256k1_ecdsa_signature* sig,
                                                                     const secp256k1_ecdsa_recoverable_signature* sigin
                                                                     ) SECP256K1_ARG_NONNULL(1) SECP256K1_ARG_NONNULL(2) SECP256K1_ARG_NONNULL(3);
-    
+
     /** Serialize an ECDSA signature in compact format (64 bytes + recovery id).
      *
      *  Returns: 1
@@ -706,7 +702,7 @@ SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ec_pubkey_combine(
                                                                               int *recid,
                                                                               const secp256k1_ecdsa_recoverable_signature* sig
                                                                               ) SECP256K1_ARG_NONNULL(1) SECP256K1_ARG_NONNULL(2) SECP256K1_ARG_NONNULL(3) SECP256K1_ARG_NONNULL(4);
-    
+
     /** Create a recoverable ECDSA signature.
      *
      *  Returns: 1: signature created
@@ -726,7 +722,7 @@ SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ec_pubkey_combine(
                                                        secp256k1_nonce_function noncefp,
                                                        const void *ndata
                                                        ) SECP256K1_ARG_NONNULL(1) SECP256K1_ARG_NONNULL(2) SECP256K1_ARG_NONNULL(3) SECP256K1_ARG_NONNULL(4);
-    
+
     /** Recover an ECDSA public key from a signature.
      *
      *  Returns: 1: public key successfully recovered (which guarantees a correct signature).
@@ -758,10 +754,7 @@ SECP256K1_API SECP256K1_WARN_UNUSED_RESULT int secp256k1_ec_pubkey_combine(
                                                                   const secp256k1_pubkey *pubkey,
                                                                   const unsigned char *privkey
                                                                   ) SECP256K1_ARG_NONNULL(1) SECP256K1_ARG_NONNULL(2) SECP256K1_ARG_NONNULL(3) SECP256K1_ARG_NONNULL(4);
+
     
-    
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* SECP256K1_H */
